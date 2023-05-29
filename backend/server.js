@@ -12,8 +12,8 @@ const cookieParser = require("cookie-parser") // Add cookie to res, req objects.
 // const requireAuth = require("./middleware/authMiddleware")
 
 //Cors and json, and middleware
-// var cors = require('cors')
-// app.use(cors())
+var cors = require("cors")
+app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
 
