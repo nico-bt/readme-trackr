@@ -8,7 +8,6 @@
   margin: 0 auto;
   padding: 30px;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
-  /* border-radius: 10px; */
   background: white;
 }
 .signup input {
@@ -26,7 +25,7 @@
   border: 0;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 0.8em;
+  font-size: 0.9em;
   padding: 10px 16px;
   letter-spacing: 2px;
   border: 1px solid black;
@@ -51,6 +50,13 @@
 }
 .border-red:focus-visible {
   outline: none;
+}
+
+.signup h2 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
 }
 
 .signup p {

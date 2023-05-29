@@ -1,0 +1,81 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(darkgreen, green);
+  color: white;
+  padding: 6px;
+  margin: 0;
+  margin-bottom: 25px;
+  letter-spacing: 3px;
+}
+
+.navbar div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.navbar h1 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0.8rem;
+}
+
+.navbar_button {
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  color: white;
+  background-color: #198754;
+  border: none;
+  box-shadow: 3px 2px 5px black;
+}
+.navbar_button:hover {
+  background-color: #157347;
+}
+button:hover {
+  cursor: pointer;
+}
+
+.navbar_new-book-button {
+  padding: 8px;
+  width: 220px;
+  border-radius: 6px;
+  background-color: black;
+  color: white;
+  font-size: 1.25rem;
+  margin-top: 15px;
+  border: 1px solid white;
+  box-shadow: 3px 2px 5px black;
+  letter-spacing: 1px;
+  font-variant: small-caps;
+}
+.navbar_new-book-button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 1px black;
+}
+
+@media (max-width: 500px) {
+  .navbar h1 {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  .navbar_button {
+    font-size: 0.75rem;
+    height: 50px;
+    width: 50px;
+  }
+}

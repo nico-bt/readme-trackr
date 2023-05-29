@@ -99,8 +99,23 @@ export const UserContextProvider = ({ children }) => {
     setError(false)
   }
 
+  // Logout
+  //-----------------------------------------
+  const logout = async () => {
+    // Send request to server to delete cookie and local state user set to null
+    try {
+      const response = await fetch(`${baseURL}/user/logout`)
+      if (response.ok) {
+        setUser(null)
+        // dispatch({ type: "SET_ALL_BOOKS", payload: [] })
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
-    <UserContext.Provider value={{ user, isLoading, error, signup, login, resetError }}>
+    <UserContext.Provider value={{ user, isLoading, error, signup, login, logout, resetError }}>
       {children}
     </UserContext.Provider>
   )

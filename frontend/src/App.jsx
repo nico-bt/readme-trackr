@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react"
 // import Navbar from "./components/Navbar/Navbar"
 import UserAuth from "./components/UserAuth/UserAuth"
 import { UserContext } from "./context/UserContext"
+import Navbar from "./components/Navbar/Navbar"
 // import { BookContext } from "./context/BookContext"
 
 function App() {
@@ -39,8 +40,8 @@ function App() {
   // }, [dispatch, user])
 
   return (
-    <div>
-      {/* <Navbar setShowForm={setShowForm} user={user} setUser={setUser} /> */}
+    <>
+      <Navbar setShowForm={setShowForm} />
 
       {!user && !isLoading && <UserAuth />}
 
@@ -53,7 +54,7 @@ function App() {
           {showForm && <Form setShowForm={setShowForm} />}
         </>
       )} */}
-    </div>
+    </>
   )
 }
 
