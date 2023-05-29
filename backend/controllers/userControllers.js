@@ -51,8 +51,7 @@ const createNewUser = async (req, res) => {
   }
 
   try {
-    let user = await User.create({ email, password })
-    //Obs: Password is hashed in the User Model before saving in db
+    let user = await User.create({ email, password }) //Obs: Password is hashed in the User Model before saving in db
 
     const token = createToken(user._id)
     res.cookie("jwt", token, { httpOnly: true, maxAge: daysInSecs * 1000 })
