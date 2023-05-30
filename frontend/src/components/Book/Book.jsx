@@ -49,11 +49,13 @@ function Book({ book }) {
             <p className="readMarker" onClick={handleClick}>
               {book.readComplete ? (
                 <>
-                  <span>Done</span> <Checkbox className="green" />
+                  <span>Done</span>
+                  <Checkbox className="green" />
                 </>
               ) : (
                 <>
-                  <span>Unread</span> <Menubook className="red" />
+                  <span>Unread</span>
+                  <Menubook className="red" />
                 </>
               )}
             </p>

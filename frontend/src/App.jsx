@@ -20,8 +20,6 @@ function App() {
     isLoading: loadingBooks,
   } = useContext(BookContext)
 
-  console.log(user)
-
   // Fetch data
   useEffect(() => {
     getAllBooks()

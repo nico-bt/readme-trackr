@@ -73,8 +73,6 @@ export function BookContextProvider({ children }) {
       if (response.ok) {
         const data = await response.json()
         dispatch({ type: "SET_ALL_BOOKS", payload: data })
-      } else {
-        // setIsLoading(false)
       }
     } catch (err) {
       dispatch({ type: "SET_ALL_BOOKS_ERROR", payload: err })

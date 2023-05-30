@@ -61,12 +61,14 @@ const createNewUser = async (req, res) => {
 
     // Create some default books to add to the user if its passed as "yes"
     if (defaultBooks === "yes") {
-      DEFAULTS_BOOKS_DATA.forEach(async (book) => {
-        await Book.create({
-          ...book,
-          user: user._id,
+      await Promise.all(
+        DEFAULTS_BOOKS_DATA.map(async (book) => {
+          await Book.create({
+            ...book,
+            user: user._id,
+          })
         })
-      })
+      )
     }
 
     res.status(201).json(user)

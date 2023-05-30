@@ -32,12 +32,18 @@ app.use("/api/user", require("./routes/userRoutes"))
 app.use("/api/books", requireAuth, require("./routes/booksRoutes"))
 
 // For production - Serving the frontend
-// if(process.env.NODE_ENV === "production"){
-//     app.use(express.static(path.join(__dirname, "..", "frontend", "build")))
-//     app.get("*", (req, res)=>{
-//         res.sendFile(path.join(__dirname, "..", "frontend", "build", "index.html"))
-//     })
-// }
+// --------------------------------------------------------------------
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "..", "frontend/dist")))
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "frontend/dist/index.html"))
+  })
+} else {
+  app.get("/", (req, res) => {
+    res.send("Development mode. Frontend in different port")
+  })
+}
 
 //Connect to DB and run app
 mongoose
