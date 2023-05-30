@@ -1,0 +1,88 @@
+.form-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.form-control {
+  width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid black;
+  background: linear-gradient(rgb(204, 221, 203), white);
+  box-shadow: 1px 2px 6px black;
+  padding: 35px;
+  padding-top: 50px;
+  position: relative; /*for positioning close-btn*/
+}
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 6px;
+  cursor: pointer;
+  font-size: 32px;
+  color: black;
+}
+.close-btn:hover {
+  background-color: red;
+  color: white;
+}
+
+.form-control > input {
+  border: 2px solid black;
+  border-radius: 6px;
+  box-shadow: 2px 2px 2px gray;
+  font-size: 1.1rem;
+  line-height: 28px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+}
+
+input:focus {
+  outline: unset;
+  border: 4px solid green;
+}
+
+.submit-btn {
+  width: 50%;
+  color: #fff;
+  background-color: #198754;
+  box-shadow: 2px 2px 4px gray;
+  border: none;
+  text-align: center;
+  border-radius: 0.25rem;
+  min-height: 48px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 22px;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+}
+.submit-btn:hover {
+  background: linear-gradient(darkgreen 65%, green);
+}
+
+.error {
+  border: 3px solid red !important;
+}
+.error-empty-msg {
+  color: red;
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  border: 1px solid red;
+  padding: 10px 6px;
+}

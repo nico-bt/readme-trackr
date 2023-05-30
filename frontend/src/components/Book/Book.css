@@ -1,0 +1,88 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgb(30, 30, 30);
+  border-radius: 12px;
+  box-shadow: 6px 6px 12px black;
+  position: relative;
+}
+.space-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.card-delete-btn {
+  position: absolute;
+  right: 4px;
+  top: 0;
+  cursor: pointer;
+  color: rgb(185, 0, 0);
+  font-size: 1.5rem;
+  padding: 2px;
+}
+.card-delete-btn:hover {
+  background-color: red;
+  color: white;
+}
+.card-edit-btn {
+  position: absolute;
+  right: 36px;
+  top: 0;
+  cursor: pointer;
+  color: gray;
+  font-size: 1.5rem;
+  padding: 2px;
+}
+.card-edit-btn:hover {
+  background-color: gray;
+  color: white;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 2rem 0.4rem;
+  margin-top: 4px;
+}
+.card-body {
+  background-color: white;
+  color: black;
+  width: 100%;
+  text-align: center;
+}
+.card-body > p {
+  padding: 0.6rem 1rem;
+  margin: 0;
+}
+.readMarker {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.readMarker:hover {
+  background-color: gray;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+
+hr {
+  margin: 0;
+  padding: 0;
+}
+.card-footer {
+  text-align: center;
+  height: 22px;
+  padding: 2px;
+  color: #0d6efd;
+}
+.card-footer > a {
+  color: #0d6efd;
+}
