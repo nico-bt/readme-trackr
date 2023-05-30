@@ -36,9 +36,6 @@ export const UserContextProvider = ({ children }) => {
   // Signup
   //-----------------------------------------
   const signup = async ({ email, password, defaultBooks }) => {
-    setIsLoading(true)
-    setError(false)
-
     try {
       const response = await fetch(`${baseURL}/user/signup`, {
         method: "POST",
@@ -53,7 +50,7 @@ export const UserContextProvider = ({ children }) => {
         }
       } else {
         const json = await response.json()
-        setError(json.error)
+        return json.error
       }
     } catch (err) {
       setError(err)
@@ -66,9 +63,6 @@ export const UserContextProvider = ({ children }) => {
   // Login
   //-----------------------------------------
   const login = async ({ email, password }) => {
-    setIsLoading(true)
-    setError(false)
-
     try {
       const response = await fetch(`${baseURL}/user/login`, {
         method: "POST",
@@ -83,7 +77,8 @@ export const UserContextProvider = ({ children }) => {
         }
       } else {
         const json = await response.json()
-        setError(json.error)
+        // setError(json.error)
+        return json.error
       }
     } catch (err) {
       setError(err)

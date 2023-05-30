@@ -16,7 +16,13 @@ function UserAuth() {
           <div className="signup">
             <p>
               Don't have an account?{" "}
-              <button className="between-signup-login lighter" onClick={() => setShowSignup(true)}>
+              <button
+                className="between-signup-login lighter"
+                onClick={() => {
+                  resetError()
+                  setShowSignup(true)
+                }}
+              >
                 Sign Up
               </button>
             </p>

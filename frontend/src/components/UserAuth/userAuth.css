@@ -15,8 +15,11 @@
   border-radius: 4px;
   border: 1px solid #ddd;
   font-size: 1em;
-  align-self: center;
+  /* align-self: center; */
   margin-bottom: 15px;
+}
+.signup label {
+  text-align: start;
 }
 .signup .submit {
   margin-top: 30px;

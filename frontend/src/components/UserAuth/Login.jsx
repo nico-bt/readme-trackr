@@ -1,13 +1,14 @@
-import React, { useContext, useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { UserContext } from "../../context/UserContext"
 import Spinner from "../Spinner/Spinner"
 
 function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [submittedEmpty, setSubmittedEmpty] = useState(false)
+  const [loginError, setLoginError] = useState(null)
+  const [loading, setLoading] = useState(false)
 
-  const { isLoading, error, login } = useContext(UserContext)
+  const { login } = useContext(UserContext)
 
   const emailInputRef = useRef()
   useEffect(() => {
@@ -20,15 +21,18 @@ function Login() {
     e.preventDefault()
 
     if (!email || !password) {
-      setSubmittedEmpty(true)
+      setLoginError("Enter all fields")
       return
     }
 
-    login({ email, password })
+    setLoading(true)
+    const err = await login({ email, password })
+    if (err) {
+      setLoginError(err)
+    }
 
-    setEmail("")
     setPassword("")
-    setSubmittedEmpty(false)
+    setLoading(false)
   }
 
   return (
@@ -36,9 +40,7 @@ function Login() {
       <form onSubmit={handleSubmit} className="signup" id="login-form">
         <h2>Log in</h2>
 
-        {submittedEmpty && <div className="error">Enter all fields</div>}
-
-        {!submittedEmpty && error && <div className="error">{error}</div>}
+        {loginError && <div className="error">{loginError}</div>}
 
         <label htmlFor="login-email">Email</label>
         <input
@@ -59,8 +61,8 @@ function Login() {
           value={password}
         />
 
-        <button className="submit" disabled={isLoading}>
-          {isLoading ? <Spinner /> : "Log in"}
+        <button className="submit" disabled={loading}>
+          {loading ? <Spinner /> : "Log in"}
         </button>
       </form>
     </div>

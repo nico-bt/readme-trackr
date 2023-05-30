@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react"
+import { useContext, useEffect, useRef } from "react"
 import { useState } from "react"
 import { UserContext } from "../../context/UserContext"
 import Spinner from "../Spinner/Spinner"
@@ -6,10 +6,11 @@ import Spinner from "../Spinner/Spinner"
 function Signup() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [submittedEmpty, setSubmittedEmpty] = useState(false)
+  const [signupError, setSignupError] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [defaultBooks, setDefaultBooks] = useState("yes")
 
-  const { isLoading, error, signup } = useContext(UserContext)
+  const { signup } = useContext(UserContext)
 
   const emailInputRef = useRef()
   useEffect(() => {
@@ -22,15 +23,17 @@ function Signup() {
     e.preventDefault()
 
     if (!email || !password) {
-      setSubmittedEmpty(true)
+      setSignupError("Enter all fields")
       return
     }
 
-    signup({ email, password, defaultBooks })
-
-    setEmail("")
+    setLoading(true)
+    const err = await signup({ email, password, defaultBooks })
+    if (err) {
+      setSignupError(err)
+    }
     setPassword("")
-    setSubmittedEmpty(false)
+    setLoading(false)
   }
 
   return (
@@ -38,9 +41,7 @@ function Signup() {
       <form onSubmit={handleSubmit} className="signup" id="signup-form">
         <h2>Sign up</h2>
 
-        {submittedEmpty && <div className="error">Enter all fields</div>}
-
-        {!submittedEmpty && error && <div className="error">{error}</div>}
+        {signupError && <div className="error">{signupError}</div>}
 
         <label htmlFor="signup-email">Email</label>
         <input
@@ -89,8 +90,8 @@ function Signup() {
           />
         </div>
 
-        <button className="submit" disabled={isLoading}>
-          {isLoading ? <Spinner /> : "Sign up"}
+        <button className="submit" disabled={loading}>
+          {loading ? <Spinner /> : "Sign up"}
         </button>
       </form>
     </div>
