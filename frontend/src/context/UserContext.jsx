@@ -23,7 +23,7 @@ export const UserContextProvider = ({ children }) => {
         }
       } catch (error) {
         setError(true)
-        console.log(error)
+        // console.log(error)
       } finally {
         setIsLoading(false)
       }

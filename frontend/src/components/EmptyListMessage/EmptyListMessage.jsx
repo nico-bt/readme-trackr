@@ -1,4 +1,3 @@
-import React from "react"
 import "./EmptyListMessage.css"
 
 function EmptyListMessage({ error, isLoading }) {
