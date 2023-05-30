@@ -29,7 +29,7 @@ app.use(express.json())
 
 //Routes
 app.use("/api/user", require("./routes/userRoutes"))
-// app.use("/api/books", requireAuth, require("./routes/books"))
+app.use("/api/books", requireAuth, require("./routes/booksRoutes"))
 
 // For production - Serving the frontend
 // if(process.env.NODE_ENV === "production"){
