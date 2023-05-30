@@ -1,7 +1,5 @@
 import { createContext, useEffect, useState } from "react"
 
-const baseURL = "http://localhost:4000/api"
-
 export const UserContext = createContext()
 
 export const UserContextProvider = ({ children }) => {
@@ -16,7 +14,7 @@ export const UserContextProvider = ({ children }) => {
       setIsLoading(true)
       setError(false)
       try {
-        const response = await fetch(`${baseURL}/user`)
+        const response = await fetch(`/api/user`)
         if (response.ok) {
           const user = await response.json()
           if (user) {
@@ -37,7 +35,7 @@ export const UserContextProvider = ({ children }) => {
   //-----------------------------------------
   const signup = async ({ email, password, defaultBooks }) => {
     try {
-      const response = await fetch(`${baseURL}/user/signup`, {
+      const response = await fetch(`/api/user/signup`, {
         method: "POST",
         body: JSON.stringify({ email, password, defaultBooks }),
         headers: { "Content-Type": "application/json" },
@@ -64,7 +62,7 @@ export const UserContextProvider = ({ children }) => {
   //-----------------------------------------
   const login = async ({ email, password }) => {
     try {
-      const response = await fetch(`${baseURL}/user/login`, {
+      const response = await fetch(`/api/user/login`, {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
@@ -99,7 +97,7 @@ export const UserContextProvider = ({ children }) => {
   const logout = async () => {
     // Send request to server to delete cookie and local state user set to null
     try {
-      const response = await fetch(`${baseURL}/user/logout`)
+      const response = await fetch(`/api/user/logout`)
       if (response.ok) {
         setUser(null)
         // dispatch({ type: "SET_ALL_BOOKS", payload: [] })
