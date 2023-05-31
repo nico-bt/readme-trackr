@@ -40,42 +40,50 @@ function EditForm({ bookToEdit, setShowEditForm }) {
   return (
     <div className="form-container">
       <form className="form-control" onSubmit={handleSubmit}>
+        <div className="form-control-header">Edit Book</div>
         <CloseIcon className="close-btn" onClick={() => setShowEditForm(false)} />
 
-        {submittedEmpty && <div className="error-empty-msg">Please enter Title and Author</div>}
+        <div className="form-control-body">
+          {submittedEmpty && <div className="error-empty-msg">Please enter Title and Author</div>}
 
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value)
-          }}
-          className={submittedEmpty && !title ? "error" : ""}
-        ></input>
+          <input
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value)
+            }}
+            className={submittedEmpty && !title ? "error" : ""}
+          ></input>
 
-        <input
-          type="text"
-          placeholder="Author"
-          value={author}
-          onChange={(e) => {
-            setAuthor(e.target.value)
-          }}
-          className={submittedEmpty && !author ? "error" : ""}
-        ></input>
+          <input
+            type="text"
+            placeholder="Author"
+            value={author}
+            onChange={(e) => {
+              setAuthor(e.target.value)
+            }}
+            className={submittedEmpty && !author ? "error" : ""}
+          ></input>
 
-        <input
-          type="text"
-          placeholder="Optional link - https://amazon.com/your-book"
-          value={link}
-          onChange={(e) => {
-            setLink(e.target.value)
-          }}
-        ></input>
+          <input
+            type="text"
+            placeholder="Optional link - https://amazon.com/your-book"
+            value={link}
+            onChange={(e) => {
+              setLink(e.target.value)
+            }}
+          ></input>
 
-        <button type="submit" className="submit-btn">
-          Edit Book
-        </button>
+          <div className="btns-container">
+            <button type="button" className="cancel-btn" onClick={() => setShowEditForm(false)}>
+              Cancel
+            </button>
+            <button type="submit" className="submit-btn">
+              Edit Book
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   )

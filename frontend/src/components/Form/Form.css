@@ -8,21 +8,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .form-control {
-  width: 460px;
+  width: 550px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  justify-content: center;
+  gap: 5px;
+  justify-content: space-between;
   border-radius: 12px;
+  background: white;
   border: 1px solid black;
-  background: linear-gradient(rgb(204, 221, 203), white);
-  box-shadow: 1px 2px 6px black;
-  padding: 35px;
-  padding-top: 50px;
+  padding: 0;
   position: relative; /*for positioning close-btn*/
 }
 .close-btn {
@@ -31,17 +29,34 @@
   right: 6px;
   cursor: pointer;
   font-size: 32px;
-  color: black;
+  color: lightgray;
 }
 .close-btn:hover {
   background-color: red;
   color: white;
 }
 
-.form-control > input {
-  border: 2px solid black;
+.form-control-header {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  height: 64px;
+  background-color: #222;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control-body {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+
+.form-control-body input {
+  border: 1px solid black;
   border-radius: 6px;
-  box-shadow: 2px 2px 2px gray;
+  /* box-shadow: 2px 2px 2px gray; */
   font-size: 1.1rem;
   line-height: 28px;
   padding: 8px 10px;
@@ -54,15 +69,23 @@ input:focus {
   border: 4px solid green;
 }
 
-.submit-btn {
-  width: 50%;
+.btns-container {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.submit-btn,
+.cancel-btn {
+  width: 125px;
   color: #fff;
   background-color: #198754;
   box-shadow: 2px 2px 4px gray;
   border: none;
   text-align: center;
   border-radius: 0.25rem;
-  min-height: 48px;
+  min-height: 40px;
   cursor: pointer;
   align-self: center;
   margin-top: 22px;
@@ -70,7 +93,15 @@ input:focus {
   letter-spacing: 1px;
 }
 .submit-btn:hover {
-  background: linear-gradient(darkgreen 65%, green);
+  background: linear-gradient(darkgreen, green);
+}
+
+.cancel-btn {
+  width: 100px;
+  background-color: #903535;
+}
+.cancel-btn:hover {
+  background: linear-gradient(darkred, red);
 }
 
 .error {

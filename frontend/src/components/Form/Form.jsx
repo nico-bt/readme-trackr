@@ -46,43 +46,51 @@ function Form({ setShowForm }) {
   return (
     <div className="form-container">
       <form className="form-control" onSubmit={handleSubmit}>
+        <div className="form-control-header">New Book</div>
         <CloseIcon className="close-btn" onClick={() => setShowForm(false)} />
 
-        {submittedEmpty && <div className="error-empty-msg">Please enter Title and Author</div>}
+        <div className="form-control-body">
+          {submittedEmpty && <div className="error-empty-msg">Please enter Title and Author</div>}
 
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value)
-          }}
-          className={submittedEmpty && !title ? "error" : ""}
-          ref={titleInputRef}
-        ></input>
+          <input
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value)
+            }}
+            className={submittedEmpty && !title ? "error" : ""}
+            ref={titleInputRef}
+          ></input>
 
-        <input
-          type="text"
-          placeholder="Author"
-          value={author}
-          onChange={(e) => {
-            setAuthor(e.target.value)
-          }}
-          className={submittedEmpty && !author ? "error" : ""}
-        ></input>
+          <input
+            type="text"
+            placeholder="Author"
+            value={author}
+            onChange={(e) => {
+              setAuthor(e.target.value)
+            }}
+            className={submittedEmpty && !author ? "error" : ""}
+          ></input>
 
-        <input
-          type="text"
-          placeholder="Optional link - https://amazon.com/your-book"
-          value={link}
-          onChange={(e) => {
-            setLink(e.target.value)
-          }}
-        ></input>
+          <input
+            type="text"
+            placeholder="Optional link - https://amazon.com/your-book"
+            value={link}
+            onChange={(e) => {
+              setLink(e.target.value)
+            }}
+          ></input>
 
-        <button type="submit" className="submit-btn">
-          Add Book
-        </button>
+          <div className="btns-container">
+            <button type="button" className="cancel-btn" onClick={() => setShowForm(false)}>
+              Cancel
+            </button>
+            <button type="submit" className="submit-btn">
+              Add Book
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   )
